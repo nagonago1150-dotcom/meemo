@@ -63,6 +63,36 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
+        .header-image {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 192, 203, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .header-image img:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .screen {
             display: none;
             min-height: calc(100vh - 40px);
@@ -523,6 +553,9 @@
 
     <!-- 画面1: ファーストビュー / 質問1 -->
     <div class="screen active" id="screen1">
+        <div class="header-image">
+            <img src="header-image.png" alt="お知らせ" />
+        </div>
         <div class="question-container">
             <div class="catchcopy">もう、自分の魅力、<br>あきらめない！</div>
             <div class="question">Q1. 理想のボディライン、諦めかけていませんか？</div>

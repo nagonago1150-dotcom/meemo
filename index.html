@@ -534,6 +534,15 @@
             100% { transform: translateX(400%); }
         }
 
+        /* モバイル専用の改行制御 */
+        .mobile-br {
+            display: none;
+        }
+        
+        .pc-br {
+            display: inline;
+        }
+        
         @media (max-width: 768px) {
             .question-container, .loading-container {
                 padding: 30px 20px;
@@ -542,15 +551,32 @@
             
             .catchcopy {
                 font-size: 24px;
+                line-height: 1.4;
             }
             
             .question {
                 font-size: 18px;
+                line-height: 1.5;
             }
             
             .option {
                 padding: 15px 25px;
                 font-size: 15px;
+                line-height: 1.4;
+            }
+            
+            .mobile-br {
+                display: block;
+            }
+            
+            .pc-br {
+                display: none;
+            }
+            
+            /* モバイルでのテキスト間隔調整 */
+            .mobile-br::before {
+                content: "\A";
+                white-space: pre;
             }
         }
     </style>
@@ -561,7 +587,7 @@
     <!-- 画面1: ファーストビュー / 質問1 -->
     <div class="screen active" id="screen1">
         <div class="question-container">
-            <div class="catchcopy">もう、自分の魅力、<br>あきらめない！</div>
+            <div class="catchcopy">もう、自分の魅力、<br class="pc-br"><span class="mobile-br"></span>あきらめない！</div>
             <div class="header-image">
                 <img src="header-image.png" alt="お知らせ" />
             </div>
@@ -576,7 +602,7 @@
     <!-- 画面2: 質問2 -->
     <div class="screen" id="screen2">
         <div class="question-container">
-            <div class="question">Q2. 内側からの美容ケアだけでなく、専門家監修のメソッドもセットで始められる方法に興味はありますか？</div>
+            <div class="question">Q2. 内側からの美容ケアだけでなく、<br class="mobile-br">専門家監修のメソッドもセットで<br class="mobile-br">始められる方法に興味はありますか？</div>
             <div class="options">
                 <button class="option" onclick="nextScreen(3)">☐ とても興味がある</button>
                 <button class="option" onclick="nextScreen(3)">☐ 少し気になる</button>
@@ -587,7 +613,7 @@
     <!-- 画面3: 質問3 -->
     <div class="screen" id="screen3">
         <div class="question-container">
-            <div class="question">Q3. もし、回数縛りなしで【81%OFF】のお得な価格で始められるとしたら、試してみたいですか？</div>
+            <div class="question">Q3. もし、回数縛りなしで【81%OFF】の<br class="mobile-br">お得な価格で始められるとしたら、<br class="mobile-br">試してみたいですか？</div>
             <div class="options">
                 <button class="option" onclick="startDiagnosis()">☐ はい、ぜひ試してみたい！</button>
                 <button class="option" onclick="startDiagnosis()">☐ 内容を詳しく知りたい</button>

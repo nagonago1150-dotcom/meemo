@@ -666,7 +666,26 @@
                 }, 50);
                 
                 setTimeout(() => {
-                    window.location.href = 'https://ad-fam.com/ad/p/r?_site=1162&_article=15325&_testcv=1';
+                    // Dynamic link mapping based on URL path
+                    const linkMapping = {
+                        '/1': 'https://sf-system.jp/link.php?i=pi4rhom8lwam&m=mi41ruivpeep',
+                        '/2': 'https://sf-system.jp/link.php?i=pi4rhom8lwam&m=mi41q1o5alqr',
+                        '/3': 'https://sf-system.jp/link.php?i=pi4rhom8lwam&m=mi41q3pp22zj',
+                        '/4': 'https://sf-system.jp/link.php?i=pi4rhom8lwam&m=mi4e9lzv5vxl'
+                    };
+
+                    // Get current URL path
+                    function getCurrentPath() {
+                        return window.location.pathname;
+                    }
+
+                    // Get the appropriate redirect URL based on current path
+                    function getRedirectUrl() {
+                        const currentPath = getCurrentPath();
+                        return linkMapping[currentPath] || 'https://ad-fam.com/ad/p/r?_site=1162&_article=15325&_testcv=1';
+                    }
+
+                    window.location.href = getRedirectUrl();
                 }, 2000);
             }, 300);
         }
